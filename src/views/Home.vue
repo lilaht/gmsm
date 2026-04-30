@@ -23,7 +23,7 @@
     const router = useRouter();
 
     const passwordTime = () => {
-        router.push('/but-first');
+        router.push('/password');
     }
 
     const options = { 

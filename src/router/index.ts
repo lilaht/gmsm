@@ -10,13 +10,13 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: '/but-first',
+      path: '/password',
       name: 'but first',
       component: Password
     },
     {
-      path: '/i-hope-it-is-a-good-day-for-both-of-us',
-      name: 'big day',
+      path: '/playlist',
+      name: 'playlist',
       component: Playlist
     }
   ],

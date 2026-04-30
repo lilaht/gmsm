@@ -44,7 +44,7 @@ const submit = () => {
         return;
         
     if(currentGuess.value.toLowerCase() == answer){
-        router.push('/i-hope-it-is-a-good-day-for-both-of-us');
+        router.push('/playlist');
     }
     else {
         anyWrongGuess.value = true;
