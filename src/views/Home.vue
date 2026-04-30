@@ -8,7 +8,7 @@
                 Fat Calf, 6:30<br />[menu]
             </div>
             <div id="DayWeatherBox" class="header-info">
-                [inc something here? fix flex direction?]
+                {{ formattedDate }}<br />[inc something here?? fix flex direction?]
             </div>
         </div>
         <div id="GameStartContainer" class="section-container game-start-container container">
@@ -31,7 +31,7 @@
         month: 'long',   // "July"
         day: 'numeric'   // "2"
     } as Intl.DateTimeFormatOptions;
-
+    
     const today = new Date();
     const formattedDate = today.toLocaleDateString('en-US', options);
 </script>
