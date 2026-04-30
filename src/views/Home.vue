@@ -12,28 +12,28 @@
             </div>
         </div>
         <div id="GameStartContainer" class="section-container game-start-container container">
-            <!-- <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2CdzmfPMQK5kbsen41LfFx" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
             <button @click="passwordTime">I have something for you.<br />Click here.</button>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+    import { useRouter } from 'vue-router';
+
     const router = useRouter();
 
     const passwordTime = () => {
         router.push('/but-first');
     }
 
-        const options = { 
-            weekday: 'long', // "Monday"
-            month: 'long',   // "July"
-            day: 'numeric'   // "2"
-        } as Intl.DateTimeFormatOptions;
-        const today = new Date();
-        const formattedDate = today.toLocaleDateString('en-US', options);
+    const options = { 
+        weekday: 'long', // "Monday"
+        month: 'long',   // "July"
+        day: 'numeric'   // "2"
+    } as Intl.DateTimeFormatOptions;
+    
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-US', options);
 </script>
 
 
