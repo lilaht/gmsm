@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="header">I hope you have a good day :)</div>
+    <div class="loading-container" v-if="isLoading">Loading...</div>
     <iframe
       id="spotify-iframe"
       data-testid="embed-iframe"
@@ -11,11 +12,19 @@
       allowfullscreen="false"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      @load="onIframeLoad"
     ></iframe>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+const isLoading = ref<boolean>(true)
+
+const onIframeLoad = () => {
+  isLoading.value = false
+}
+</script>
 
 <style>
 .container {
@@ -36,6 +45,12 @@
 
 #spotify-iframe {
   border-radius: 12px;
+}
+
+.loading-container {
+  background-color: #d2b9fa;
+  border-radius: 5px;
+  padding: 1%;
 }
 
 @media (max-width: 767px) {
