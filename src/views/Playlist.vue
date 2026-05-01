@@ -51,6 +51,7 @@ const onIframeLoad = () => {
   background-color: #d2b9fa;
   border-radius: 5px;
   padding: 1%;
+  font-size: 1rem;
 }
 
 @media (max-width: 767px) {
