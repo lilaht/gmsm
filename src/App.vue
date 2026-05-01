@@ -1,10 +1,8 @@
-
-
 <template>
   <RouterView />
   <div class="heart-background-layer">
-    <div 
-      v-for="heart in hearts" 
+    <div
+      v-for="heart in hearts"
       :key="heart.index"
       :class="heart.class"
       :style="{
@@ -12,58 +10,63 @@
         '--delay': heart.delay,
         '--duration': heart.duration,
         '--size': heart.size,
-        '--tilt': heart.tilt
+        '--tilt': heart.tilt,
       }"
     >
       <div class="heart-shape"></div>
     </div>
   </div>
-    
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { ref, onMounted } from 'vue';
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { ref, onMounted } from 'vue'
+
+const route = useRoute()
+
+var isHome = () => {
+  return route.path == '/'
+}
 
 type THeart = {
-            index: number,
-            class: string,
-            left: string,
-            delay: string,
-            duration: string,
-            size: string,
-            tilt: string
-        }
+  index: number
+  class: string
+  left: string
+  delay: string
+  duration: string
+  size: string
+  tilt: string
+}
 
-        const heartClass = {
-            purple: "purple-heart",
-            blue: "blue-heart"
-        }
+const heartClass = {
+  purple: 'purple-heart',
+  blue: 'blue-heart',
+}
 
-        var numOfHearts = 50;
-        var hearts = ref<THeart[]>([]);
+var numOfHearts = 50
+var hearts = ref<THeart[]>([])
 
-        var isPurple = true;
-        
-        onMounted(() => {
-            const generatedHearts: THeart[] = [];
+var isPurple = true
 
-            for (let i = 0; i < numOfHearts; i++) {
-                generatedHearts.push({
-                    index: i,
-                    class: (isPurple ? heartClass.purple : heartClass.blue) + " heart-emitter",
-                    left: Math.random() * 100 + "%",
-                    delay: Math.random() * -20 + 's',
-                    duration: 5 + Math.random() * 5 + "s",
-                    size: 10 + Math.random() * 20 + 'px',
-                    tilt: (Math.random() * 90 - 45) + 'deg'
-                });
+onMounted(() => {
+  const generatedHearts: THeart[] = []
 
-                isPurple = !isPurple;
-            }
-            
-            hearts.value = generatedHearts;
-        });
+  for (let i = 0; i < numOfHearts; i++) {
+    generatedHearts.push({
+      index: i,
+      class: (isPurple ? heartClass.purple : heartClass.blue) + ' heart-emitter',
+      left: Math.random() * 100 + '%',
+      delay: Math.random() * -20 + 's',
+      duration: 5 + Math.random() * 5 + 's',
+      size: 10 + Math.random() * 20 + 'px',
+      tilt: Math.random() * 90 - 45 + 'deg',
+    })
+
+    isPurple = !isPurple
+  }
+
+  hearts.value = generatedHearts
+})
 </script>
 
 <style scoped>
@@ -89,11 +92,11 @@ type THeart = {
 }
 
 /* Specific Hex Colors */
-.purple-heart .heart-shape { 
-  background-color: #450696; 
+.purple-heart .heart-shape {
+  background-color: #450696;
 }
-.blue-heart .heart-shape { 
-  background-color: #101a85; 
+.blue-heart .heart-shape {
+  background-color: #101a85;
 }
 
 .heart-shape {
@@ -114,8 +117,14 @@ type THeart = {
   border-radius: 50%;
 }
 
-.heart-shape::before { top: -50%; left: 0; }
-.heart-shape::after { top: 0; left: 50%; }
+.heart-shape::before {
+  top: -50%;
+  left: 0;
+}
+.heart-shape::after {
+  top: 0;
+  left: 50%;
+}
 
 @keyframes float-up {
   0% {
@@ -134,5 +143,4 @@ type THeart = {
     opacity: 0;
   }
 }
-
 </style>

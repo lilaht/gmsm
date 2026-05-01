@@ -22,7 +22,7 @@
 } */
 
 :root {
-  --vt-c-light-purple: #915db0; /*light bg*/
+  --vt-c-light-purple: #9668b3; /*#915db0; /*light bg*/
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
 
@@ -133,7 +133,7 @@ button {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s; /* Smooth motion */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 button:hover {
@@ -144,4 +144,22 @@ button:hover {
 
 button:active {
   transform: translateY(0); /* Returns to normal on click */
+}
+
+.menu-btn {
+  background-color: #d9d9d9; /* Modern Indigo */
+  color: #292929;
+  font-size: 1rem;
+}
+
+.menu-btn:hover {
+  transform: translateY(-2px); /* Lifts up */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: #9b9b9b;
+}
+
+@media (max-width:767px)  {
+    button {
+      white-space: nowrap;
+    }
 }

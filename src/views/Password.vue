@@ -2,7 +2,7 @@
     <div class="view-container container">
         <div class="question-container container">
             <div id="QuestionBox" class="question">
-                You love to what????
+                You love to what???
             </div>
         </div>
         <div class="password-container container">
@@ -170,5 +170,17 @@ body {
 
 .input:focus ~ .underline {
   width: 100%;
+}
+
+@media (max-width:767px)  {
+    .question {
+        font-size: clamp(1rem, 4.7vh, 2rem);
+        white-space: nowrap;
+        font-weight: 700;
+    }
+
+    .input {
+        width: auto;
+    }
 }
 </style>

@@ -4,15 +4,11 @@
             <span class="header-main header">Good morning,<br/>sweet Marcy</span>
         </div>
         <div id="HomeInfoContainer" class="info-container container">
-            <div id="PlanBox" class="header-info">
-                Fat Calf, 6:30<br />[menu]
-            </div>
-            <div id="DayWeatherBox" class="header-info">
-                {{ formattedDate }}<br />[inc something here?? fix flex direction?]
-            </div>
+                <span class="info-txt">Fat Calf @ 6:30</span>
+                <button class="menu-btn" @click="openMenu">The menu</button>
         </div>
         <div id="GameStartContainer" class="section-container game-start-container container">
-            <button @click="passwordTime">I have something for you.<br />Click here.</button>
+            <button @click="passwordTime">I have something for you<br />Click here</button>
         </div>
     </div>
 </template>
@@ -34,6 +30,10 @@
     
     const today = new Date();
     const formattedDate = today.toLocaleDateString('en-US', options);
+
+    const openMenu = () => {
+        window.open("https://fatcalfbrasserie.com/menu/", "_blank");
+    }
 </script>
 
 
@@ -55,18 +55,41 @@ body {
     line-height: 120%;
 }
 
-.header-info {
-    /* font-size: 5.5vh; */
-    font-size: clamp(1rem, 5.5vh, 3rem);
-    font-weight: 700;
-}
-
 .info-container {
     width: 75vw;
     justify-content: space-around;
+    font-size: clamp(1rem, 5.5vh, 3rem);
+    font-weight: 700;
+    flex-direction: column;
 }
 
+.info-txt {
+    font-weight: 700;
+}
 
+@media (max-width:767px)  {
+    .view-container {
+        justify-content: space-around;
+    }
 
+    .header-main {
+        /* font-size: 16vh; */
+        font-size: clamp(2rem, 9vh, 4.7rem);
+        font-weight: 900;
+        line-height: 120%;
+    }
+
+    .info-container {
+        width: 75vw;
+        justify-content: space-around;
+        font-size: clamp(1rem, 4vh, 2.5rem);
+        font-weight: 700;
+        flex-direction: column;
+    }
+
+    .info-txt {
+        font-weight: 700;
+    }
+}
 
 </style>
