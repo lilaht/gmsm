@@ -13,7 +13,8 @@
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
     "format": "prettier --write --experimental-cli src/",
-    "deploy": "vite build && copy dist/index.html dist/404.html && gh-pages -d dist"
+    "predeploy": "vite build && copy dist/index.html dist/404.html",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "pinia": "^3.0.4",
